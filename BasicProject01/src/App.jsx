@@ -1,6 +1,4 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 
 //Learning File Structure of React , understanding overall working
@@ -21,7 +19,9 @@ function App() {
   };
   return (
     <>
-      <h1>Counter Project</h1>
+      <h1 className="bg-green-400 text-black p-4 rounded-xl border-2 border-indigo-600">
+        Counter Project
+      </h1>
       <h3>Count Value : {value}</h3>
       <br />
       <button onClick={IncreaseValue}>increase</button>
