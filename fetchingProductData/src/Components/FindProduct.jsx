@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import "./Comp.css";
 
 const FindProduct = () => {
   const [text, setText] = useState("");
@@ -10,11 +11,14 @@ const FindProduct = () => {
   function findProductById() {
     setProductData(null);
     setError(false);
+    setLoader(true);
     fetch(`https://localhost:7005/api/Products/${text}`)
       .then((response) => {
         if (!response.ok) {
+          setLoader(false);
           throw new Error("network error");
         } else {
+          setLoader(false);
           return response.json();
         }
       })
@@ -68,7 +72,26 @@ const FindProduct = () => {
         </div>
       </div>
 
-      {loader && <p>Loading...</p>}
+      {loader && (
+        <>
+          <div className="flex items-center justify-center min-h-screen bg-gray-700">
+            <div className="loader">
+              <div class="bar1"></div>
+              <div class="bar2"></div>
+              <div class="bar3"></div>
+              <div class="bar4"></div>
+              <div class="bar5"></div>
+              <div class="bar6"></div>
+              <div class="bar7"></div>
+              <div class="bar8"></div>
+              <div class="bar9"></div>
+              <div class="bar10"></div>
+              <div class="bar11"></div>
+              <div class="bar12"></div>
+            </div>
+          </div>
+        </>
+      )}
       {error && (
         <div class="container mx-auto p-8">
           <div class="bg-white p-6 rounded-lg shadow-lg">

@@ -11,6 +11,7 @@ function App() {
     <>
       <Navbar Title="Text Converter" />
       <Routes>
+        <Route path="/" element={<Textarea />} />
         <Route path="/textarea" element={<Textarea />} />
 
         <Route path="/About" element={<About />} />
