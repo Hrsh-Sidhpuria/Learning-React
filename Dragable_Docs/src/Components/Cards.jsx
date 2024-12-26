@@ -7,12 +7,10 @@ import { MdDeleteOutline } from "react-icons/md";
 function Cards({ task, reference, reload }) {
   const [title, setTitle] = useState(task.Title);
 
-  //method to delete card
   const DeleteCard = (task) => {
     let name = "TaskList";
     let days = 3;
 
-    // Retrieve the cookie value for 'TaskList'
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
 
@@ -20,6 +18,7 @@ function Cards({ task, reference, reload }) {
     let parsedTaskList = [];
     try {
       parsedTaskList = JSON.parse(TaskList);
+      console.log(parsedTaskList);
     } catch (error) {
       console.error("Failed to parse task list from cookie:", error);
       return;
@@ -38,6 +37,34 @@ function Cards({ task, reference, reload }) {
     reload();
   };
 
+  // //method to Edit card
+  // const EditCard = () => {
+  //   let name = "TaskList";
+  //   let days = 3;
+
+  //   // Retrieve the cookie value for 'TaskList'
+  //   const value = `; ${document.cookie}`;
+  //   const parts = value.split(`; ${name}=`);
+
+  //   let TaskList = decodeURIComponent(parts.pop().split(";").shift());
+  //   let parsedTaskList = [];
+  //   try {
+  //     parsedTaskList = JSON.parse(TaskList);
+  //   } catch (error) {
+  //     console.error("Failed to parse task list from cookie:", error);
+  //     return;
+  //   }
+  //   let tasksArray = Object.values(parsedTaskList);
+
+  //   console.log(tasksArray);
+  //   for(let i = 0, len = tasksArray.length; i < len; i++){
+  //     if(tasksArray[i] === element){
+  //        return true;
+  //     }
+
+  //   // reload();
+  // };
+
   return (
     <div>
       <motion.div
@@ -49,9 +76,10 @@ function Cards({ task, reference, reload }) {
         <div className="flex pt-4 px-4">
           <div className="Edits-option absolute bottom-0 left-0 right-0 overflow-hidden w-full h-12 border-t-2 border-gray-500">
             <div className="absolute p-2 right-2">
-              <button title="Edit Task">
+              {/* //Pending Edit option */}
+              {/* <button title="Edit Task" onClick={EditCard}>
                 <MdEdit color="green" size="1.3em" />
-              </button>
+              </button> */}
             </div>
           </div>
           <div className="delete-option absolute top-4 right-3">
