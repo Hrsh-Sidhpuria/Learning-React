@@ -37,34 +37,6 @@ function Cards({ task, reference, reload }) {
     reload();
   };
 
-  // //method to Edit card
-  // const EditCard = () => {
-  //   let name = "TaskList";
-  //   let days = 3;
-
-  //   // Retrieve the cookie value for 'TaskList'
-  //   const value = `; ${document.cookie}`;
-  //   const parts = value.split(`; ${name}=`);
-
-  //   let TaskList = decodeURIComponent(parts.pop().split(";").shift());
-  //   let parsedTaskList = [];
-  //   try {
-  //     parsedTaskList = JSON.parse(TaskList);
-  //   } catch (error) {
-  //     console.error("Failed to parse task list from cookie:", error);
-  //     return;
-  //   }
-  //   let tasksArray = Object.values(parsedTaskList);
-
-  //   console.log(tasksArray);
-  //   for(let i = 0, len = tasksArray.length; i < len; i++){
-  //     if(tasksArray[i] === element){
-  //        return true;
-  //     }
-
-  //   // reload();
-  // };
-
   return (
     <div>
       <motion.div
