@@ -14,8 +14,16 @@
   width: 100%;
   height: 100vh;
 }
+
+#back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 #top {
-  position: absolute;
+  pointer-events: none;
+  position: fixed;
+  z-index: 3;
   top: 0;
   left: 0;
   width: 100%;
@@ -27,11 +35,11 @@
   width: 94%;
   height: 100vh;
   max-width: 1920px;
-  background-color: green;
   position: relative;
 }
 
 #nav {
+  pointer-events: all;
   width: 100%;
   height: 10%;
 }
@@ -77,16 +85,18 @@
   justify-content: space-between;
   align-items: center;
   position: absolute;
-  top: 33%;
+  top: 26%;
   left: 0;
 }
 
 .h-left {
+  margin-top: 50px;
   min-width: 50%;
   display: flex;
   flex-direction: column;
 }
 .btn button {
+  pointer-events: all;
   border: 1px solid rgb(31, 179, 166);
   font-size: 2.5vw;
   font-family: "kajiro";
@@ -95,20 +105,89 @@
   margin-left: 20px;
 }
 .h-left .elem {
+  position: relative;
   height: 8vw;
   overflow: hidden;
 }
 
+.h-left .elem h1:nth-child(1) {
+  top: 0;
+}
+
 .h-left .elem h1 {
+  position: absolute;
   line-height: 0.85;
   font-family: "kajiro";
   color: white;
   font-weight: 100;
   font-size: 10vw;
+  top: 100%;
+  left: 0;
+}
+
+.text-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.animated-text {
+  position: absolute;
+  width: 100%;
+  text-align: left;
+  animation: moveUp 0.5s ease-in-out;
+}
+
+.animate {
+  animation: moveUp 0.5s ease-in-out;
+}
+
+@keyframes moveUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .h-right {
-  min-width: 25%;
+  width: 17%;
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
+}
+
+.h-right .r-elem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.h-right div {
+  text-align: right;
+  font-size: 13px;
+  margin-bottom: 15px;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  color: whitesmoke;
+}
+
+.h-right .box {
+  margin-top: 20px;
+  width: 100%;
+  height: 10rem;
+  background-image: url(https://images.unsplash.com/photo-1492037766660-2a56f9eb3fcb?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  background-size: cover;
+  background-position: center;
 }
